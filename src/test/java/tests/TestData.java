@@ -2,10 +2,10 @@ package tests;
 
 import com.github.javafaker.Faker;
 
+import java.security.SecureRandom;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
-import static utils.RandomUtils.*;
 
 public class TestData {
    static Faker faker = new Faker();
@@ -19,6 +19,19 @@ public class TestData {
            userBirthYear = birthday[2],
            userAddress = faker.address().fullAddress(),
             userPhone = faker.phoneNumber().subscriberNumber(10);
+
+    public static String randomString(int len){
+        String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+        SecureRandom rnd = new SecureRandom();
+        StringBuilder sb = new StringBuilder(len);
+        for(int i = 0; i < len; i++)
+            sb.append(AB.charAt(rnd.nextInt(AB.length())));
+        return sb.toString();
+    }
+
+    public static String randomEmail(int len){
+        return randomString(len) + "@guru.qa";
+    }
 
     static String userEmail = randomEmail(10);
 }

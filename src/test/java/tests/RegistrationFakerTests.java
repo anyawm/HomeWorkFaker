@@ -3,7 +3,7 @@ package tests;
 import org.junit.jupiter.api.Test;
 
 import static tests.TestData.*;
-import static utils.RandomUtils.*;
+
 
 
 public class RegistrationFakerTests extends TestBase {
