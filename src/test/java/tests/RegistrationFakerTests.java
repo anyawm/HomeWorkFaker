@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import static tests.TestData.*;
 
 
-
 public class RegistrationFakerTests extends TestBase {
 
 
@@ -17,27 +16,27 @@ public class RegistrationFakerTests extends TestBase {
                 .setFirstName(userName)
                 .setLastName(lastName)
                 .setEmail(userEmail)
-                .setGender("Other")
+                .setGender(userSex)
                 .setPhone(userPhone)
                 .setBirthDay(userBirthDay, userBirthMonth, userBirthYear)
-                .setSubject("Math")
-                .setHobbies("Sports")
+                .setSubject(userSubject)
+                .setHobbies(userHobbies)
                 .setAddress(userAddress)
-                .setState("NCR")
-                .setCity("Delhi")
+                .setState(userState)
+                .setCity(userCity)
                 .setPhoto("img/kote.jpg")
                 .submitButton()
                 .registrationResultsModalAppears()
                 .verifyResults("Student name", userName + " " + lastName)
                 .verifyResults("Student email", userEmail)
-                .verifyResults("Gender", "Other")
+                .verifyResults("Gender", userSex)
                 .verifyResults("Mobile", userPhone)
                 .verifyResults("Date of Birth", userBirthDay + " " + userBirthMonth + "," + userBirthYear)
-                .verifyResults("Subjects", "Maths")
-                .verifyResults("Hobbies", "Sports")
+                .verifyResults("Subjects", userSubject)
+                .verifyResults("Hobbies", userHobbies)
                 .verifyResults("Picture", "kote.jpg")
                 .verifyResults("Address", userAddress)
-                .verifyResults("State and City", "NCR Delhi");
+                .verifyResults("State and City", userState + " " + userCity);
     }
 
 }
